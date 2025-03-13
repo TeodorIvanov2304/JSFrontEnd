@@ -58,7 +58,7 @@ solve2(['sunny','rainy','cloudy','sunny','not sunny']);
 
 console.log('-----------------------------');
 
-//With reverse funciton
+//With reverse function
 function solve3(passwords) {
     let username = passwords[0];
     let reversedPassword = username.split('').reverse().join('');    
