@@ -41,6 +41,9 @@ function simpleCalculator2(a, b, operator) {
     };
     let action = operationsMap[operator];
     console.log(action(a,b));
+
+    //Another variant, without action variable
+    //console.log(operationsMap[operator](a,b));
 }
 
 simpleCalculator2(5, 5, "multiply");
