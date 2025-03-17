@@ -1,14 +1,14 @@
 function charsInRange(symbol1, symbol2) {
   //Get the number from ASCII symbol
-  let start = symbol1.charCodeAt(0) + 1;
-  let end = symbol2.charCodeAt(0) - 1;
+  let start = symbol1.charCodeAt(0);
+  let end = symbol2.charCodeAt(0);
 
   if (start > end) {
     swap();
   }
 
   let arrWithSymbols = [];
-  for (let i = start; i <= end; i++) {
+  for (let i = start + 1; i < end; i++) {
     //Get the ASCII symbol from the ASCII number
     arrWithSymbols.push(String.fromCharCode(i));
   }
@@ -17,8 +17,8 @@ function charsInRange(symbol1, symbol2) {
 
   function swap() {
     let temp = start;
-    start = end + 2;
-    end = temp - 2;
+    start = end;
+    end = temp;
   }
 }
 
@@ -43,4 +43,3 @@ function charsInRangeV2(symbol1, symbol2) {
   charsInRangeV2("a", "d");
   charsInRangeV2("#", ":");
   charsInRangeV2('C', '#');
-  
