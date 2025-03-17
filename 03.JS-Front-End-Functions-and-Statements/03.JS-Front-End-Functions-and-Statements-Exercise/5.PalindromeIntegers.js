@@ -6,10 +6,10 @@ function palindromeIntegers(arrOfIntegers) {
         
         //Compare element with reversed element
         if(element == reversedElement){
-            console.log('true');
+            console.log(true);
         }
         else {
-            console.log('false');
+            console.log(false);
         }
     }
 }
