@@ -44,4 +44,38 @@ console.log(`---------------------`);
 passwordValidator('MyPass123');
 console.log(`---------------------`);
 passwordValidator('Pa$s$s');
+
+console.log('**********************');
+
+function passwordValidator2(password) {
+    let errors = [];
+
+    if (password.length < 6 || password.length > 10) {
+        errors.push(`Password must be between 6 and 10 characters`);
+    }
+
+    let pattern = /^[A-Za-z0-9]+$/i; //i = key insensitive
+
+    if (!pattern.test(password)) {
+        errors.push(`Password must consist only of letters and digits`);
+    }
+
+    let digitPattern = /\d.*\d/;
+    if(!digitPattern.test(password)) {
+        errors.push(`Password must have at least 2 digits`);
+    }
+
+    if (errors.length) { //errors.length == 0
+        console.log(errors.join('\n'));
+        
+    } else {
+        console.log(`Password is valid`)
+    }
+}
+
+passwordValidator2('logIn');
+console.log(`---------------------`);
+passwordValidator2('MyPass123');
+console.log(`---------------------`);
+passwordValidator2('Pa$s$s');
 console.log(`---------------------`);
