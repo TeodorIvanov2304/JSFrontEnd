@@ -16,3 +16,15 @@ console.log(myFirstObject);
 
 //Create empty object
 let person = {};
+
+function createMan(firstName, lastName, age){
+    let man = {
+        firstName, // <= this is called composition, assigning the variables
+        lastName, //without their key. Compose the variables inside the object
+        age
+    };
+    console.log(man);
+}
+
+createMan('Dirk','Yensen',22);
+
