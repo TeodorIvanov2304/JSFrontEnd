@@ -14,16 +14,15 @@ class Cat {
     }
 }
 
-let cats = [];
-
-for(let entry of catsDescriptors) {
-    let [name, age] = entry.split(' ');
-    let cat = new Cat(name, Number(age));
-    cats.push(cat);
-}
+let cats = catsDescriptors.map(parseCatData);
 
 for(let cat of cats) {
     cat.meow();
+}
+
+function parseCatData(entry){
+    let [name, age] = entry.split(' ');
+    return cat = new Cat(name, Number(age));
 }
 }
 
