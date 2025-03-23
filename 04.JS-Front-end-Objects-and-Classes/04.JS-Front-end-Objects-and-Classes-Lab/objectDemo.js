@@ -23,8 +23,21 @@ function createMan(firstName, lastName, age){
         lastName, //without their key. Compose the variables inside the object
         age
     };
-    console.log(man);
 }
 
 createMan('Dirk','Yensen',22);
 
+
+//Destructuring -> the opposite of composition
+function destructuring(){
+    let man = {
+        'firstName':'Star',
+        'lastName': 'Channel',
+        'age': 22
+    };
+
+    let {age} = man;
+    console.log(age);
+}
+
+destructuring();

@@ -7,11 +7,14 @@ function phoneBook(arr) {
         let phoneNumber = splittedEntry[1];
         phonebook[name] = phoneNumber;
     }
+    
 
     let entries = Object.entries(phonebook);
     for(let entry of entries) {
         console.log(`${entry[0]} -> ${entry[1]}`);
     }
+
+    console.log(phonebook.has('Tim'));
 }
 
 phoneBook([
@@ -38,7 +41,7 @@ function phoneBook2(data) {
         let [name, phone] = item.split(' ');
         phonebook[name] = phone;
     }
-    
+
     for (const name in phonebook) {
         console.log(`${name} -> ${phonebook[name]}`)
     }
