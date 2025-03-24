@@ -1,23 +1,16 @@
 function towns(townsArr){
-    // class Town {
-    //     constructor(name, latitude, longtitude){
-    //         this.town = name;
-    //         this.latitude = latitude;
-    //         this.longtitude = longtitude;
-    //     }
-    // }
 
     for(let item of townsArr){
         let [town,latitude,longitude] = item.split(' | ');
-        let city = {
+        let currentTown = {
             town,
             latitude,
             longitude: longitude
         };
 
-        city.latitude = Number(latitude).toFixed(2);
-        city.longitude = Number(longitude).toFixed(2);
-        console.log(city);
+        currentTown.latitude = Number(latitude).toFixed(2);
+        currentTown.longitude = Number(longitude).toFixed(2);
+        console.log(currentTown);
     }
 
 }
