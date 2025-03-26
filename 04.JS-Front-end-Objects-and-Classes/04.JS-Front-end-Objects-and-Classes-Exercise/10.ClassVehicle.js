@@ -7,7 +7,7 @@ class Vehicle {
     constructor(type, model, parts, fuel){
         this.type = type;
         this.model = model;
-        //Initialize the engine object properties
+        //Initialize the parts object properties
         this.parts.engine = parts.engine;
         this.parts.power = parts.power;
         this.parts.quality = parts.power * parts.engine;
