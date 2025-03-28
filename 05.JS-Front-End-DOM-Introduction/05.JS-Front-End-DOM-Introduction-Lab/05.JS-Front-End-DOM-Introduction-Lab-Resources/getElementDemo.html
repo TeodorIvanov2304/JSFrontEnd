@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get element demo</title>
+    <style>
+        .red {
+            color: rgb(61, 143, 63);
+            padding-left: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="getElementDemo.js"></script>
+    <h1 id="title">Hello there!</h1>
+    <p class="red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus impedit illo porro, soluta numquam praesentium
+        quibusdam aliquam sed, cumque ea alias odio necessitatibus nam consequatur, voluptas ducimus velit vero quo.</p>
+    <p class="blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus impedit illo porro, soluta numquam praesentium
+        quibusdam aliquam sed, cumque ea alias odio necessitatibus nam consequatur, voluptas ducimus velit vero quo.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus impedit illo porro, soluta numquam praesentium
+        quibusdam aliquam sed, cumque ea alias odio necessitatibus nam consequatur, voluptas ducimus velit vero quo.</p>
+    <button class="blue" onclick="getByClass()">Get class</button>
+    <button class="red" onclick="edit()">Set content</button>
+    <button onclick="getByTag()">Get tags</button>
+    <button onclick="getByQuery()">Get all tags</button>
+    <input id="message" type="text">
+</body>
+
+</html>
