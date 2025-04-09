@@ -22,6 +22,13 @@ async function loadPosts() {
 async function loadDetails() {
     let menu = document.getElementById('posts');
     let postId = menu.value;
+
+    //Promise all
+    // let [postData, comments] = await Promise.all({
+    //     getPostById(postId),
+    //     getCommentsByPostId(postId)
+    // });
+
     let postData = await getPostById(postId);
     let comments = await getCommentsByPostId(postId);
 
@@ -47,6 +54,10 @@ async function getAllPosts(){
     if(!response.ok){
         alert('Request error');
         throw new Error('Request error');
+    }
+
+    if(response.status == 204){
+        return [];
     }
 
     let data = await response.json();
