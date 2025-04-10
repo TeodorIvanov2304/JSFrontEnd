@@ -39,6 +39,8 @@ async function onPost(ev) {
 
     await postStudent(firstName, lastName, facultyNumber, grade);
     
+    //Reset all values in the form element
+    document.querySelector('form').reset();
     onGet();
 }
 
