@@ -4,21 +4,25 @@ document.getElementById('submit').addEventListener('click', onPost);
 onGet();
 
 async function onGet() {
-    let students = await getStudents();
+    try {
+        let students = await getStudents();
 
-    let list = document.querySelector('tbody');
-    list.replaceChildren();
+        let list = document.querySelector('tbody');
+        list.replaceChildren();
 
-    for(let student of students){
-        let row = document.createElement('tr');
-        row.innerHTML = [
-           `<td>${student.firstName}</td>
-            <td>${student.lastName}</td>
-            <td>${student.facultyNumber}</td>
-            <td>${student.grade.toFixed(2)}</td>`
-        ].join('');
+        for (let student of students) {
+            let row = document.createElement('tr');
+            row.innerHTML = [
+                `<td>${student.firstName}</td>
+                 <td>${student.lastName}</td>
+                 <td>${student.facultyNumber}</td>
+                 <td>${student.grade.toFixed(2)}</td>`
+            ].join('');
 
-        list.appendChild(row);
+            list.appendChild(row);
+        }
+    } catch (err) {
+        alert('Error while loading students: ' + err.message);
     }
 }
 
@@ -30,31 +34,35 @@ async function onPost(ev) {
     let facultyNumber = document.querySelector('[name="facultyNumber"]').value;
     let grade = Number(document.querySelector('[name="grade"]').value);
 
-    if(!firstName 
-       ||!lastName
-       ||!facultyNumber
-       ||!grade){
+    if (!firstName || !lastName || !facultyNumber || !grade) {
         return;
     }
 
-    await postStudent(firstName, lastName, facultyNumber, grade);
-    
-    //Reset all values in the form element
-    document.querySelector('form').reset();
-    onGet();
+    try {
+        await postStudent(firstName, lastName, facultyNumber, grade);
+
+        //Reset all values in the form element
+        document.querySelector('form').reset();
+        onGet();
+    } catch (err) {
+        alert('Error while submitting student: ' + err.message);
+    }
 }
 
 //GET
 async function getStudents() {
-    let res = await fetch(link);
+    try {
+        let res = await fetch(link);
 
-    if(!res.ok){
-        throw new Error('Error occured');
+        if (!res.ok) {
+            throw new Error('Failed to fetch students');
+        }
+
+        let data = await res.json();
+        return Object.values(data);
+    } catch (err) {
+        throw new Error('Error fetching students: ' + err.message);
     }
-
-    let data = await res.json();
-
-    return Object.values(data);
 }
 
 //POST
